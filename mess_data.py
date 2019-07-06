@@ -17,7 +17,7 @@ def add_short_people(df, frac=0.001):
 
 def add_heavy_people(df, frac=0.001):
     nanidx = df.sample(frac=frac).index
-    df.iloc[nanidx, 11] = (pd.to_numeric(df.iloc[nanidx, 11].str.slice(0, 2)) + 75).astype(str) + ' kg'
+    df.iloc[nanidx, 11] = (pd.to_numeric(df.iloc[nanidx, 11].str.slice(0, 2)) + 105).astype(str) + ' kg'
     return df
 
 def add_light_people(df, frac=0.001):
@@ -64,4 +64,4 @@ def perform_modifs(df):
 data = pd.read_csv('OGFullData.csv')
 data = perform_modifs(data)
 
-data.to_csv('FullData.csv')
+data.to_csv('FullData.csv', index=False)
